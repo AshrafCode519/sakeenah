@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=سَكِينة - Sakeenah
+GenericName=Islamic Quran and Athkar App
+Comment=تطبيق القرآن الكريم والأذكار الشاملة ومواقيت الصلاة
+Icon=sakeenah
+Exec=sakeenah %u
+Terminal=false
+Categories=Utility;Education;Religion;
+Keywords=Quran;Athkar;Prayers;Islam;قرآن;أذكار;مواقيت;صلاة;
+StartupNotify=true
+StartupWMClass=com.sakeenah.sakeenah
