@@ -4,6 +4,21 @@ class ArabicUtils {
   ];
 
   /// Converts standard digits to Eastern Arabic numerals (١، ٢، ٣...)
+  
+  /// Converts Eastern Arabic numerals (١، ٢، ٣...) to standard integer
+  static int fromArabicDigits(String input) {
+    const map = {
+      '٠': '0', '١': '1', '٢': '2', '٣': '3', '٤': '4',
+      '٥': '5', '٦': '6', '٧': '7', '٨': '8', '٩': '9',
+    };
+    final buffer = StringBuffer();
+    for (int i = 0; i < input.length; i++) {
+      final ch = input[i];
+      buffer.write(map[ch] ?? ch);
+    }
+    return int.tryParse(buffer.toString()) ?? 1;
+  }
+
   static String toArabicDigits(dynamic number) {
     final str = number.toString();
     final buffer = StringBuffer();

@@ -3,11 +3,13 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/theme/app_theme.dart';
 import 'core/services/storage_service.dart';
 import 'screens/home_screen.dart';
+import 'core/services/quran_15_lines_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final storage = await StorageService.getInstance();
   final isDark = storage.isDarkMode;
+  Quran15LinesService.instance.init();
 
   runApp(SakeenahApp(initialIsDark: isDark));
 }

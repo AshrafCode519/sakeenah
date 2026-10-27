@@ -146,7 +146,7 @@ class MushafTafseerSheet extends StatelessWidget {
                   label: Text('نسخ التفسير', style: GoogleFonts.cairo(fontWeight: FontWeight.bold)),
                   onPressed: () {
                     Clipboard.setData(ClipboardData(
-                      text: '﴿ ${ayah.text} ﴾\n[سورة ${surah.name}: ${ayah.numberInSurah}]\n\nالتفسير:\n${ayah.tafseer}',
+                      text: '﴿ ${ayah.text} ﴾\n[سورة ${surah.name}: ${ayah.numberInSurah}]\n\nالتفسير:\n${ayah.tafseer ?? "التفسير الميسر والمختصر للآية الكريمة المباركة."}',
                     ));
                     Navigator.pop(context);
                     ScaffoldMessenger.of(context).showSnackBar(
