@@ -55,8 +55,11 @@ exec /usr/lib/sakeenah/sakeenah "$@"
 EOF
 chmod +x "$DEB_DIR/usr/bin/sakeenah"
 
-# 5. نسخ ملف اختصار سطح المكتب والبرامج
+# 5. نسخ ملف اختصار سطح المكتب والبرامج والأيقونة
 cp linux/sakeenah.desktop "$DEB_DIR/usr/share/applications/"
+if [ -f "linux/sakeenah.png" ]; then
+    cp linux/sakeenah.png "$DEB_DIR/usr/share/icons/hicolor/256x256/apps/sakeenah.png"
+fi
 
 # 6. بناء الحزمة بواسطة dpkg-deb
 echo "🔨 تجميع حزمة التثبيت (${PACKAGE_NAME}_${VERSION}_${ARCH}.deb)..."

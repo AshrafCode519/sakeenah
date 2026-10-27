@@ -3,9 +3,13 @@ name: Build Linux Desktop App
 on:
   push:
     branches: [ main, master ]
+    tags: [ 'v*' ]
   pull_request:
     branches: [ main, master ]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build-linux:
@@ -58,3 +62,16 @@ jobs:
         with:
           name: sakeenah-debian-package
           path: build/*.deb
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          files: |
+            sakeenah-linux-x64.tar.gz
+            build/*.deb
+
